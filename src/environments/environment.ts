@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  useEmulators: true,
   firebase: {
     apiKey: 'AIzaSyBnCEFqnF15WOwueCrsEUBfd8gACOTkmOg',
     authDomain: 'xc-roster-manager.firebaseapp.com',

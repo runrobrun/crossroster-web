@@ -1,2 +1,20 @@
-<p>home works!</p>
-<button mat-raised-button color='accent' (click)='onReadDoc()'>Read Doc</button>
+<div class='athletes-panel'>
+  <div class='header'>
+    <h2 class='title'>Athletes</h2>
+    <button mat-mini-fab color='accent'>
+      <mat-icon class='add-athlete-btn'>add</mat-icon>
+    </button>
+  </div>
+  <mat-tab-group>
+
+    <mat-tab label="Boys">
+      <athletes-card-list [athletes]='maleAthletes$ | async'></athletes-card-list>
+    </mat-tab>
+
+    <mat-tab label="Girls">
+      <athletes-card-list [athletes]='femaleAthletes$ | async'></athletes-card-list>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</div>

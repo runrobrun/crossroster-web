@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {Observable} from 'rxjs';
+import {Athlete} from '../models/athlete';
+import {AthletesService} from '../services/athletes.service';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +11,21 @@ import {AngularFirestore} from '@angular/fire/firestore';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private db: AngularFirestore) { }
+  maleAthletes$: Observable<Athlete[]>;
+
+  femaleAthletes$: Observable<Athlete[]>;
+
+  constructor(private db: AngularFirestore,
+              private athletesService: AthletesService) { }
 
   ngOnInit(): void {
+    this.reloadAthletes();
   }
 
-  onReadDoc() {
-    this.db.doc("/athletes/L7eZ8TW3MsjPUjzbwuIE").get()
-      .subscribe(snap => {
-        console.log(snap.id);
-        console.log(snap.data());
-      })
+  reloadAthletes() {
+    this.femaleAthletes$ = this.athletesService.loadAthletesByGender('FEMALE');
+    this.maleAthletes$ = this.athletesService.loadAthletesByGender('MALE');
   }
+
+
 }
