@@ -1,0 +1,131 @@
+[debug] [2021-08-24T17:58:13.320Z] ----------------------------------------------------------------------
+[debug] [2021-08-24T17:58:13.322Z] Command:       /Users/rmh16246/.nvm/versions/node/v14.15.5/bin/node /Users/rmh16246/.nvm/versions/node/v14.15.5/bin/firebase init
+[debug] [2021-08-24T17:58:13.322Z] CLI Version:   9.16.5
+[debug] [2021-08-24T17:58:13.322Z] Platform:      darwin
+[debug] [2021-08-24T17:58:13.322Z] Node Version:  v14.15.5
+[debug] [2021-08-24T17:58:13.323Z] Time:          Tue Aug 24 2021 12:58:13 GMT-0500 (Central Daylight Time)
+[debug] [2021-08-24T17:58:13.323Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-08-24T17:58:13.328Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-08-24T17:58:13.329Z] > authorizing via signed-in user (runrobrun@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/rmh16246/dev/crossroster-web
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2021-08-24T17:59:45.876Z] > refreshing access token with scopes: []
+[debug] [2021-08-24T17:59:45.876Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-24T17:59:45.989Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Tue, 24 Aug 2021 17:59:45 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-24T17:59:46.043Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2021-08-24T17:59:46.265Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2021-08-24T17:59:46.266Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project xc-roster-manager (xc-roster-manager) 
+[info] 
+=== Firestore Setup
+[debug] [2021-08-24T17:59:49.662Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-08-24T17:59:49.663Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-24T17:59:49.769Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Tue, 24 Aug 2021 17:59:49 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-24T17:59:49.825Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/xc-roster-manager/services/firestore.googleapis.com  
+ 
+[debug] [2021-08-24T17:59:50.171Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 24 Aug 2021 17:59:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-24T17:59:50.171Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/xc-roster-manager  
+ 
+[debug] [2021-08-24T17:59:50.367Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 24 Aug 2021 17:59:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-24T17:59:50.368Z] database_type: CLOUD_FIRESTORE
+[debug] [2021-08-24T17:59:50.368Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-08-24T17:59:50.368Z] > authorizing via signed-in user (runrobrun@gmail.com)
+[debug] [2021-08-24T17:59:50.369Z] [iam] checking project xc-roster-manager for permissions ["firebase.projects.get"]
+[debug] [2021-08-24T17:59:50.369Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/xc-roster-manager:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-08-24T17:59:50.497Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 24 Aug 2021 17:59:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=40","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2021-08-24T17:59:53.568Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/xc-roster-manager/releases?pageSize=10&pageToken=  
+ 
+[debug] [2021-08-24T17:59:53.770Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 24 Aug 2021 17:59:53 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-24T17:59:53.770Z] Found ruleset: projects/xc-roster-manager/rulesets/f9904a91-959c-4abc-bb7c-fcec354f1e3c
+[debug] [2021-08-24T17:59:53.771Z] >>> HTTP REQUEST GET https://firebaserules.googleapis.com/v1/projects/xc-roster-manager/rulesets/f9904a91-959c-4abc-bb7c-fcec354f1e3c  
+ 
+[debug] [2021-08-24T17:59:53.961Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 24 Aug 2021 17:59:53 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[debug] [2021-08-24T17:59:55.380Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/xc-roster-manager/databases/(default)/collectionGroups/-/indexes  
+ 
+[debug] [2021-08-24T17:59:55.380Z] >>> HTTP REQUEST GET https://firestore.googleapis.com/v1/projects/xc-roster-manager/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false  
+ 
+[debug] [2021-08-24T17:59:55.619Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 24 Aug 2021 17:59:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-24T17:59:55.620Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 24 Aug 2021 17:59:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+=== Functions Setup
+[info] 
+[info] A functions directory will be created in your project with sample code
+[info] pre-configured. Functions can be deployed with firebase deploy.
+[info] 
+[debug] [2021-08-24T17:59:55.622Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-08-24T17:59:55.622Z] > authorizing via signed-in user (runrobrun@gmail.com)
+[debug] [2021-08-24T17:59:55.622Z] [iam] checking project xc-roster-manager for permissions ["firebase.projects.get"]
+[debug] [2021-08-24T17:59:55.622Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/xc-roster-manager:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-08-24T17:59:55.709Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 24 Aug 2021 17:59:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=35","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-24T17:59:55.710Z] >>> HTTP REQUEST POST https://serviceusage.googleapis.com/v1/projects/xc-roster-manager/services/cloudfunctions.googleapis.com:enable  
+ 
+[debug] [2021-08-24T17:59:55.710Z] >>> HTTP REQUEST POST https://serviceusage.googleapis.com/v1/projects/xc-roster-manager/services/runtimeconfig.googleapis.com:enable  
+ 
+[debug] [2021-08-24T17:59:55.908Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 24 Aug 2021 17:59:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-24T17:59:56.012Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 24 Aug 2021 17:59:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] ✔  Wrote functions/package.json 
+[info] ✔  Wrote functions/tsconfig.json 
+[info] ✔  Wrote functions/src/index.ts 
+[info] ✔  Wrote functions/.gitignore 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2021-08-24T18:01:28.544Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2021-08-24T18:01:28.615Z] <<< [apiv2][status] GET https://www.gstatic.com/firebasejs/releases.json 200
+[debug] [2021-08-24T18:01:28.616Z] <<< [apiv2][body] GET https://www.gstatic.com/firebasejs/releases.json {"current":{"version":"8.10.0","browserURL":"https://www.gstatic.com/firebasejs/8.10.0/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/8.10.0/firebase.tgz"},"live":{"version":"8.10","browserURL":"https://www.gstatic.com/firebasejs/live/8.10/firebase.js","packageURL":"https://www.gstatic.com/firebasejs/live/8.10/firebase.tgz"},"components":{"analytics":"https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js","app":"https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js","app-check":"https://www.gstatic.com/firebasejs/8.10.0/firebase-app-check.js","auth":"https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js","database":"https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js","firestore":"https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js","functions":"https://www.gstatic.com/firebasejs/8.10.0/firebase-functions.js","installations":"https://www.gstatic.com/firebasejs/8.10.0/firebase-installations.js","messaging":"https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js","storage":"https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js","performance":"https://www.gstatic.com/firebasejs/8.10.0/firebase-performance.js","remote-config":"https://www.gstatic.com/firebasejs/8.10.0/firebase-remote-config.js","firestore.memory":"https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.memory.js"}}
+[info] ✔  Wrote dist/index.html 
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Detected a .git folder at /Users/rmh16246/dev/crossroster-web 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=527270896&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2021-08-24T18:01:54.738Z] >>> HTTP REQUEST POST https://github.com/login/oauth/access_token  
+ {"client_id":"89cf50f02ac6aaed3484","client_secret":"3330d14abc895d9a74d5f17cd7a00711fa2c5bf0","code":"e65a337f13b3be2bd033","redirect_uri":"http://localhost:9005","state":"527270896"}
+[debug] [2021-08-24T18:01:54.966Z] <<< HTTP RESPONSE 200 {"server":"GitHub.com","date":"Tue, 24 Aug 2021 18:01:54 GMT","content-type":"application/json; charset=utf-8","transfer-encoding":"chunked","vary":"X-PJAX, X-PJAX-Container, Accept-Encoding, Accept, X-Requested-With","permissions-policy":"interest-cohort=()","etag":"W/\"5122bc519562bb42f12f0cc495b8f109\"","cache-control":"max-age=0, private, must-revalidate","strict-transport-security":"max-age=31536000; includeSubdomains; preload","x-frame-options":"deny","x-content-type-options":"nosniff","x-xss-protection":"0","referrer-policy":"origin-when-cross-origin, strict-origin-when-cross-origin","expect-ct":"max-age=2592000, report-uri=\"https://api.github.com/_private/browser/errors\"","content-security-policy":"default-src 'none'; base-uri 'self'; block-all-mixed-content; connect-src 'self' uploads.github.com www.githubstatus.com collector.githubapp.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com cdn.optimizely.com logx.optimizely.com/v1/events translator.github.com wss://alive.github.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; frame-src render.githubusercontent.com viewscreen.githubusercontent.com; img-src 'self' data: github.githubassets.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com secured-user-images.githubusercontent.com/ *.githubusercontent.com; manifest-src 'self'; media-src 'none'; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; worker-src github.com/socket-worker-3f088aa2.js gist.github.com/socket-worker-3f088aa2.js","x-github-request-id":"D705:2007:24F2419:3DE742E:61253412"}
+[debug] [2021-08-24T18:01:54.970Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2021-08-24T18:01:55.223Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2021-08-24T18:01:55.225Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"runrobrun","id":1489508,"node_id":"MDQ6VXNlcjE0ODk1MDg=","avatar_url":"https://avatars.githubusercontent.com/u/1489508?v=4","gravatar_id":"","url":"https://api.github.com/users/runrobrun","html_url":"https://github.com/runrobrun","followers_url":"https://api.github.com/users/runrobrun/followers","following_url":"https://api.github.com/users/runrobrun/following{/other_user}","gists_url":"https://api.github.com/users/runrobrun/gists{/gist_id}","starred_url":"https://api.github.com/users/runrobrun/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/runrobrun/subscriptions","organizations_url":"https://api.github.com/users/runrobrun/orgs","repos_url":"https://api.github.com/users/runrobrun/repos","events_url":"https://api.github.com/users/runrobrun/events{/privacy}","received_events_url":"https://api.github.com/users/runrobrun/received_events","type":"User","site_admin":false,"name":"Rob Hammann","company":"Vermeer Manufacturing","blog":"robhammann.com","location":"Pella Iowa","email":"runrobrun@gmail.com","hireable":true,"bio":null,"twitter_username":"hammannr","public_repos":22,"public_gists":7,"followers":18,"following":19,"created_at":"2012-03-01T18:17:20Z","updated_at":"2021-08-22T20:14:39Z","private_gists":5,"total_private_repos":11,"owned_private_repos":11,"disk_usage":600664,"collaborators":2,"two_factor_authentication":false,"plan":{"name":"pro","space":976562499,"collaborators":0,"private_repos":9999}}
+[info] 
+[info] ✔  Success! Logged into GitHub as runrobrun 
+[info] 
