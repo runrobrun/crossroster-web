@@ -80,8 +80,7 @@ export class CreateAthleteComponent implements OnInit{
 
     this.athletesService.createAthlete(newAthlete, this.athleteId)
       .pipe(
-        tap(athlete => {
-          console.log('created new athlete', athlete);
+        tap(() => {
           this.router.navigateByUrl('/');
         }),
         catchError(err => {

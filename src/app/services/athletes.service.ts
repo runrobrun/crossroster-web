@@ -13,7 +13,6 @@ export class AthletesService {
   }
 
   loadAthletesByGender(gender: string): Observable<Athlete[]> {
-    console.log("gender:" + gender);
     return this.db.collection(
       'athletes',
       ref => ref.where('gender', '==', gender)
@@ -47,4 +46,7 @@ export class AthletesService {
 
   }
 
+  updateAthlete(athleteId: string, changes: Partial<Athlete>): Observable<any> {
+    return from(this.db.doc(`athletes/${athleteId}`).update(changes));
+  }
 }
