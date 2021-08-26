@@ -3,6 +3,9 @@ import {Athlete} from '../models/athlete';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {Router} from '@angular/router';
 import {EditAthleteDialogComponent} from '../edit-athlete-dialog/edit-athlete-dialog.component';
+import {AthletesService} from '../services/athletes.service';
+import {catchError, tap} from 'rxjs/operators';
+import {throwError} from 'rxjs';
 
 @Component({
   selector: 'athletes-card-list',
@@ -21,7 +24,8 @@ export class AthletesCardListComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private athletesService: AthletesService
   ) {
   }
 
@@ -45,6 +49,22 @@ export class AthletesCardListComponent implements OnInit {
           this.athleteEdited.emit();
         }
       });
+  }
+
+  deleteAthlete(athlete: Athlete) {
+    this.athletesService.deleteAthlete(athlete.id)
+      .pipe(
+        tap(() => {
+          console.log('deleted athlete: ', athlete);
+          this.athleteDeleted.emit(athlete);
+        }),
+        catchError(err => {
+          console.log(err);
+          alert('could not delete athlete.');
+          return throwError(err);
+        })
+      )
+      .subscribe();
   }
 }
 
