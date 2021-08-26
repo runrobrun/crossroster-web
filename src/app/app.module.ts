@@ -18,11 +18,20 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {AthletesCardListComponent} from './athletes-card-list/athletes-card-list.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import {CreateAthleteComponent} from './create-athlete/create-athlete.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 @NgModule({
   declarations: [
     AppComponent,
     AthletesCardListComponent,
+    CreateAthleteComponent,
     HomeComponent
   ],
   imports: [
@@ -40,7 +49,15 @@ import {MatDialogModule} from '@angular/material/dialog';
     AngularFireFunctionsModule,
     MatTabsModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSlideToggleModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [
     { provide: USE_AUTH_EMULATOR, useValue: environment.useEmulators ? ['localhost', 9099] : undefined },

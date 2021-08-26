@@ -1,4 +1,4 @@
-<mat-card *ngFor="let athlete of athletes" class="course-card mat-elevation-z10">
+<mat-card *ngFor="let athlete of athletes" class="athlete-card mat-elevation-z10">
 
   <mat-card-header>
 
@@ -6,13 +6,13 @@
 
   </mat-card-header>
 
-  <img mat-card-image [src]="athlete.profileUrl">
+  <img mat-card-image [src]="athlete.profileUrl" alt='profile image'>
 
   <mat-card-content>
     <p>{{athlete.email}}</p>
   </mat-card-content>
 
-  <mat-card-actions class="course-actions">
+  <mat-card-actions class="athlete-actions">
 
     <button mat-button class="mat-raised-button mat-primary" [routerLink]="['/athletes', athlete.id]">
       VIEW DETAILS
