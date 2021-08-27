@@ -27,6 +27,7 @@ import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {EditAthleteDialogComponent} from './edit-athlete-dialog/edit-athlete-dialog.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {EditAthleteDialogComponent} from './edit-athlete-dialog/edit-athlete-dia
     AthletesCardListComponent,
     CreateAthleteComponent,
     EditAthleteDialogComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
