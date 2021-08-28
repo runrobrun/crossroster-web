@@ -6,7 +6,7 @@
     "metadata_file": "firestore_export/firestore_export.overall_export_metadata"
   },
   "auth": {
-    "version": "9.3.0",
+    "version": "9.16.5",
     "path": "auth_export"
   }
 }
