@@ -28,6 +28,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {EditAthleteDialogComponent} from './edit-athlete-dialog/edit-athlete-dialog.component';
 import { LoginComponent } from './login/login.component';
+import { AthleteComponent } from './athlete/athlete.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { LoginComponent } from './login/login.component';
     CreateAthleteComponent,
     EditAthleteDialogComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    AthleteComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,7 @@ import { LoginComponent } from './login/login.component';
     MatSlideToggleModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     { provide: USE_AUTH_EMULATOR, useValue: environment.useEmulators ? ['localhost', 9099] : undefined },
