@@ -83,13 +83,13 @@
       <input placeholder="Bag #" matInput formControlName='bagNumber'>
     </mat-form-field>
 
-    <mat-slide-toggle class="active-athlete" color="primary" formControlName='isTeamLeader'>
+    <mat-slide-toggle class="active-athlete" color="primary" formControlName='isTeamLeader' (change)='setTeamLeaderFlag()'>
       Athlete is Team Leader?
     </mat-slide-toggle>
 
-    <mat-form-field appearance="outline" >
-      <input placeholder="Team Leader" matInput formControlName='teamLeader'>
-    </mat-form-field>
+    <mat-select placeholder='Leader' formControlName='teamLeader' *ngIf='!isTeamLeader'>
+      <mat-option *ngFor='let leader of leaders$ | async' value='{{leader.firstName}} {{leader.lastName}}'>{{leader.firstName}} {{leader.lastName}}</mat-option>
+    </mat-select>
 
     <mat-slide-toggle class="active-athlete" color="primary" formControlName='physicalCurrent'>
       Athlete Physical is Current?

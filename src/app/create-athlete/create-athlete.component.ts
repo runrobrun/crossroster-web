@@ -7,7 +7,7 @@ import {Athlete} from '../models/athlete';
 import firebase from 'firebase';
 import Timestamp = firebase.firestore.Timestamp;
 import {catchError, tap} from 'rxjs/operators';
-import {throwError} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 
 @Component({
   selector:'create-athlete',
@@ -40,6 +40,8 @@ export class CreateAthleteComponent implements OnInit{
     notes:['']
   })
   private athleteId: string;
+  isTeamLeader: boolean = false;
+  leaders$: Observable<Athlete[]>;
 
   constructor(private fb: FormBuilder,
               private athletesService: AthletesService,
@@ -50,6 +52,7 @@ export class CreateAthleteComponent implements OnInit{
 
   ngOnInit(): void {
     this.athleteId = this.afs.createId();
+    this.leaders$ = this.athletesService.getLeadersList();
   }
 
   onCreateAthlete():void {
@@ -91,5 +94,9 @@ export class CreateAthleteComponent implements OnInit{
         })
       ).subscribe();
 
+  }
+
+  setTeamLeaderFlag(): void {
+    this.isTeamLeader = !this.isTeamLeader;
   }
 }

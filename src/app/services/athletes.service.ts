@@ -67,4 +67,13 @@ export class AthletesService {
       );
   }
 
+  getLeadersList(): Observable<Athlete[]> {
+    return this.db.collection('athletes', ref => ref.where('isTeamLeader', '==', true)
+      .orderBy('lastName'))
+      .get()
+      .pipe(
+        map(result => convertSnaps<Athlete>(result))
+      )
+  }
+
 }
