@@ -30,6 +30,7 @@ import {EditAthleteDialogComponent} from './edit-athlete-dialog/edit-athlete-dia
 import { LoginComponent } from './login/login.component';
 import { AthleteComponent } from './athlete/athlete.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatDatepickerModule,
     MatNativeDateModule,
     MatProgressSpinnerModule,
+    MatTableModule,
   ],
   providers: [
     { provide: USE_AUTH_EMULATOR, useValue: environment.useEmulators ? ['localhost', 9099] : undefined },

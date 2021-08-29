@@ -4,12 +4,27 @@ import {convertSnaps} from './db.utils';
 import {from, Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Athlete} from '../models/athlete';
+import {MeetResult} from '../models/meet-result';
+import firebase from 'firebase';
+import OrderByDirection = firebase.firestore.OrderByDirection;
 
 @Injectable({
   providedIn: 'root'
 })
 export class AthletesService {
   constructor(private db: AngularFirestore) {
+  }
+
+  findMeetResults(athleteId: string, sortOrder: OrderByDirection = 'asc',
+              pageNumber = 0, pageSize = 3): Observable<MeetResult[]> {
+    return this.db.collection(`athletes/${athleteId}/meet-results`,
+      ref => ref.orderBy('date', sortOrder)
+        .limit(pageSize)
+        .startAfter(pageNumber * pageSize))
+      .get()
+      .pipe(
+        map(results => convertSnaps<MeetResult>(results))
+      );
   }
 
   loadAthletesByGender(gender: string): Observable<Athlete[]> {
