@@ -6,6 +6,7 @@ import {LoginComponent} from './login/login.component';
 import {AthleteComponent} from './athlete/athlete.component';
 import {AthleteResolver} from './services/athlete.resolver';
 import {MeetsComponent} from './meets/meets.component';
+import {CreateMeetComponent} from './create-meet/create-meet.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'create-athlete',
     component: CreateAthleteComponent
+  },
+  {
+    path: 'create-meet',
+    component: CreateMeetComponent
   },
   {
     path: 'meets',

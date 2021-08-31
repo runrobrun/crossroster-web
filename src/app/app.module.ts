@@ -32,6 +32,9 @@ import { AthleteComponent } from './athlete/athlete.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
 import { MeetsComponent } from './meets/meets.component';
+import { MeetsCardListComponent } from './meets-card-list/meets-card-list.component';
+import { EditMeetDialogComponent } from './edit-meet-dialog/edit-meet-dialog.component';
+import { CreateMeetComponent } from './create-meet/create-meet.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { MeetsComponent } from './meets/meets.component';
     HomeComponent,
     LoginComponent,
     AthleteComponent,
-    MeetsComponent
+    MeetsComponent,
+    MeetsCardListComponent,
+    EditMeetDialogComponent,
+    CreateMeetComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
 export interface Meet {
+  id?: string;
+  archived: boolean,
   hostSchool: string,
   meetName: string,
   locationUrl?: string

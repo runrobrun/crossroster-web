@@ -10,7 +10,8 @@ import {MeetsService} from '../services/meets.service';
   styleUrls: ['./meets.component.scss']
 })
 export class MeetsComponent implements OnInit {
-  meets$: Observable<Meet[]>;
+  activeMeets$: Observable<Meet[]>;
+  archivedMeets$: Observable<Meet[]>;
   selectedSeason: number;
 
   constructor(private db: AngularFirestore,
@@ -21,7 +22,8 @@ export class MeetsComponent implements OnInit {
   }
 
   reloadMeets(): void {
-    this.meets$ = this.meetsService.loadMeets()
+    this.activeMeets$ = this.meetsService.loadMeets(false);
+    this.archivedMeets$ = this.meetsService.loadMeets(true);
   }
 
 }
