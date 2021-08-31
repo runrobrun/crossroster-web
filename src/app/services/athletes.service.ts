@@ -17,8 +17,8 @@ export class AthletesService {
 
   findMeetResults(athleteId: string, sortOrder: OrderByDirection = 'asc',
               pageNumber = 0, pageSize = 3): Observable<MeetResult[]> {
-    return this.db.collection(`athletes/${athleteId}/meet-results`,
-      ref => ref.orderBy('date', sortOrder)
+    return this.db.collection(`athletes/${athleteId}/meetResults`,
+      ref => ref.orderBy('meetName', sortOrder)
         .limit(pageSize)
         .startAfter(pageNumber * pageSize))
       .get()

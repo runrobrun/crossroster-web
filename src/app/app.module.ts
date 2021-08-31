@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 import { AthleteComponent } from './athlete/athlete.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatTableModule} from '@angular/material/table';
+import { MeetsComponent } from './meets/meets.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MatTableModule} from '@angular/material/table';
     EditAthleteDialogComponent,
     HomeComponent,
     LoginComponent,
-    AthleteComponent
+    AthleteComponent,
+    MeetsComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ export class AthleteComponent implements OnInit {
   loading: boolean = false;
   lastPageLoaded = 0;
 
-  displayedColumns = ['date', 'meet-name', 'time', 'place'];
+  displayedColumns = ['meetName', 'time', 'place'];
 
   constructor(private route: ActivatedRoute,
               private athletesService: AthletesService) { }
@@ -26,6 +26,7 @@ export class AthleteComponent implements OnInit {
     this.athlete = this.route.snapshot.data.athlete;
     this.loading = true;
 
+    console.log("Athlete: ", this.athlete);
     this.athletesService.findMeetResults(this.athlete.id)
       .pipe(
         finalize(() => this.loading = false)

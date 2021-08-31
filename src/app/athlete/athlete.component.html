@@ -8,20 +8,20 @@
 
   </div>
   <mat-table class="results-table" [dataSource]='meetResults'>
-    <ng-container matColumnDef="date">
-
-      <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
-
-      <mat-cell *matCellDef="let result">{{result.date.toDate() | date:'MM/dd/yyyy'}}</mat-cell>
-
-    </ng-container>
-
-
-    <ng-container matColumnDef="meet-name">
+    <ng-container matColumnDef="meetName">
 
       <mat-header-cell *matHeaderCellDef>Meet Name</mat-header-cell>
 
       <mat-cell *matCellDef="let result">{{result.meetName}}</mat-cell>
+
+    </ng-container>
+
+
+    <ng-container matColumnDef="place">
+
+      <mat-header-cell *matHeaderCellDef>Place</mat-header-cell>
+
+      <mat-cell *matCellDef="let result">{{result.place}}</mat-cell>
 
     </ng-container>
 
@@ -31,15 +31,6 @@
 
       <mat-cell class="description-cell"
                 *matCellDef="let result">{{result.time}}</mat-cell>
-
-    </ng-container>
-
-    <ng-container matColumnDef="place">
-
-      <mat-header-cell *matHeaderCellDef>Place</mat-header-cell>
-
-      <mat-cell class="duration-cell"
-                *matCellDef="let result">{{result.place}}</mat-cell>
 
     </ng-container>
 
