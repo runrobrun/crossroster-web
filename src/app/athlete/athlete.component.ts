@@ -16,7 +16,7 @@ export class AthleteComponent implements OnInit {
   meetResults: MeetResult[];
   loading: boolean = false;
   lastPageLoaded = 0;
-
+  currentSeason = 2020;
   displayedColumns = ['meetName', 'time', 'place'];
 
   constructor(private route: ActivatedRoute,
@@ -26,19 +26,19 @@ export class AthleteComponent implements OnInit {
     this.athlete = this.route.snapshot.data.athlete;
     this.loading = true;
 
-    console.log("Athlete: ", this.athlete);
-    this.athletesService.findMeetResults(this.athlete.id)
+    this.athletesService.findMeetResultsBySeason(this.athlete.id, this.currentSeason)
       .pipe(
         finalize(() => this.loading = false)
       )
       .subscribe(
-        results => {this.meetResults = results;console.log('result', results);}
+        results => this.meetResults = results
 
       )
   }
 
   loadMore(): void {
     this.lastPageLoaded++;
+    console.log("lastPageLoaded", this.lastPageLoaded);
     this.loading = true;
     this.athletesService.findMeetResults(this.athlete.id, 'asc', this.lastPageLoaded)
       .pipe(

@@ -27,6 +27,15 @@ export class AthletesService {
       );
   }
 
+  findMeetResultsBySeason(athleteId: string, season: number = 2020): Observable<MeetResult[]> {
+    return this.db.collection(`athletes/${athleteId}/meetResults`,
+      ref => ref.where('season', '==', season))
+      .get()
+      .pipe(
+        map( results => convertSnaps<MeetResult>(results))
+      );
+  }
+
   loadAthletesByGender(gender: string): Observable<Athlete[]> {
     return this.db.collection(
       'athletes',
