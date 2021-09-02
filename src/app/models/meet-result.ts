@@ -5,7 +5,8 @@ export interface MeetResult {
   distanceInMiles: number,
   meetName: string,
   place: number,
-  scheduleId: string,
+  season: number,
+  meetId: string,
   time: string,
   timeInSeconds: number
 }

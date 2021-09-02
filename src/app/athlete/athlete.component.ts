@@ -47,4 +47,7 @@ export class AthleteComponent implements OnInit {
       .subscribe(results => this.meetResults = this.meetResults.concat(results));
   }
 
+  addResult() {
+
+  }
 }

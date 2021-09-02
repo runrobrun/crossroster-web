@@ -43,4 +43,9 @@ export class MeetsService {
             })
           );
   }
+
+  getMeetById(meetId: string) {
+    const meetDoc = this.db.doc<Meet>(`meets/${meetId}`);
+    return meetDoc.valueChanges();
+  }
 }

@@ -1,0 +1,25 @@
+<div class="create-result">
+
+  <h3>Create New Meet Result for *athlete name here</h3>
+
+  <form [formGroup]='form'>
+    <mat-select placeholder='Select a Meet' formControlName='meet'>
+      <mat-option *ngFor='let meet of meets$ | async' value='{{meet.id}}'>{{meet.meetName}}</mat-option>
+    </mat-select>
+    <mat-form-field appearance="outline">
+      <input placeholder="season" matInput formControlName='season'>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="Distance in miles(3.1)" matInput formControlName='distanceInMiles'>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="time (XX:XX.X)" matInput formControlName='time'>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input placeholder="place" matInput formControlName='place'>
+    </mat-form-field>
+    <button mat-raised-button color="warn" [disabled]='!form.valid' (click)='onCreateMeet()'>
+      Create Meet
+    </button>
+  </form>
+</div>

@@ -55,7 +55,7 @@ export class CreateAthleteComponent implements OnInit{
     this.leaders$ = this.athletesService.getLeadersList();
   }
 
-  onCreateAthlete():void {
+  onCreateAthlete(): void {
     const val = this.athleteForm.value;
     const newAthlete: Partial<Athlete> = {
       firstName: val.firstName,

@@ -39,6 +39,9 @@
     <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 
   </mat-table>
+  <button mat-mini-fab color='accent'>
+    <mat-icon class='add-athlete-btn' [routerLink]="['/create-result', athlete.id]">add</mat-icon>
+  </button>
 
 
   <button class="bottom-toolbar" mat-raised-button color="primary"

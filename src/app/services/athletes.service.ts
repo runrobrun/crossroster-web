@@ -100,4 +100,24 @@ export class AthletesService {
       )
   }
 
+  createResult(newResult: Partial<MeetResult>, resultId: string, athleteId: string) {
+
+    let saveResult$: Observable<any>;
+
+    if (resultId) {
+      saveResult$ = from(this.db.doc(`athletes/${athleteId}/meetResults/${resultId}`).set(newResult));
+    } else {
+      saveResult$ = from(this.db.collection(`athletes/${athleteId}/meetResults`).add(newResult));
+    }
+
+    return saveResult$
+      .pipe(
+        map(res => {
+          return {
+            id: resultId ?? res.id,
+            ...newResult
+          };
+        })
+      );
+  }
 }
