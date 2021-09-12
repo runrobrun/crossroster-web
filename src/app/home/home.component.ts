@@ -3,6 +3,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {Observable} from 'rxjs';
 import {Athlete} from '../models/athlete';
 import {AthletesService} from '../services/athletes.service';
+import {GlobalSettings} from '../global-settings';
 
 @Component({
   selector: 'app-home',

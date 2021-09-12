@@ -3,8 +3,8 @@
   <h3>Create New Meet Result for *athlete name here</h3>
 
   <form [formGroup]='form'>
-    <mat-select placeholder='Select a Meet' formControlName='meet'>
-      <mat-option *ngFor='let meet of meets$ | async' value='{{meet.id}}'>{{meet.meetName}}</mat-option>
+    <mat-select placeholder='Select a Meet' formControlName='meet' (selectionChange)='onChange($event)'>
+      <mat-option *ngFor='let meet of meets$ | async' [value]='meet.id'>{{meet.meetName}}</mat-option>
     </mat-select>
     <mat-form-field appearance="outline">
       <input placeholder="season" matInput formControlName='season'>

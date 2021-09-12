@@ -101,6 +101,7 @@ export class AthletesService {
   }
 
   createResult(newResult: Partial<MeetResult>, resultId: string, athleteId: string) {
+    console.log("THIS IS NEW RESULT", newResult)
 
     let saveResult$: Observable<any>;
 
@@ -113,6 +114,7 @@ export class AthletesService {
     return saveResult$
       .pipe(
         map(res => {
+          console.log("NEW RESULT", newResult);
           return {
             id: resultId ?? res.id,
             ...newResult

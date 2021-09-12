@@ -10,6 +10,8 @@ export class AppComponent {
   constructor(public user: UserService) {
 
   }
+  today = new Date();
+  public selectedSeason = this.today.getFullYear()
 
   logout(): void {
     this.user.logout();
