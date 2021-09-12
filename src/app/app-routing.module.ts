@@ -8,6 +8,7 @@ import {AthleteResolver} from './services/athlete.resolver';
 import {MeetsComponent} from './meets/meets.component';
 import {CreateMeetComponent} from './create-meet/create-meet.component';
 import {CreateResultComponent} from './create-result/create-result.component';
+import {SeasonComponent} from './season/season.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path: 'meets',
     component: MeetsComponent
+  },
+  {
+    path: 'season',
+    component: SeasonComponent
   },
   {
     path: 'athletes/:profileUrl',
