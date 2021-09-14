@@ -1,1 +1,13 @@
-<p>season works!</p>
+<div class='season' *ngIf='season'>
+  <h2>Pella Cross Country {{season.seasonYear}} Season</h2>
+  <p>{{season.seasonTheme}}</p>
+  <h3>Boys Roster</h3>
+  <h3>Girls Roster</h3>
+  <h3>Scheduled Meets</h3>
+<!--  <div *ngFor='let meet of seasonMeets$ | async'>-->
+<!--    {{meet.meetName}} - {{meet.id}}-->
+<!--  </div>-->
+</div>
+<div *ngIf='!season'>
+  No Active season found. Create one now? See Archived seasons?
+</div>

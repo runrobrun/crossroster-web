@@ -13,7 +13,7 @@
         <span>Meets</span>
       </a>
 
-      <a mat-list-item routerLink='/season'>
+      <a mat-list-item [routerLink]="['/seasons', activeSeason]">
         <mat-icon>event</mat-icon>
         <span>Season</span>
       </a>

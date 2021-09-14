@@ -45,8 +45,6 @@ export class MeetsService {
   }
 
   getMeetById(meetId: string) {
-    return this.db.doc<Meet>(`meets/${meetId}`).get().pipe(
-
-    )
+    return this.db.doc<Meet>(`meets/${meetId}`).get().pipe()
   }
 }

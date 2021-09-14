@@ -7,7 +7,7 @@ export interface Athlete {
   lastName: string;
   gender: string;
   gradYear: number;
-  active: boolean;
+  active?: boolean;
   primaryPhone?: string;
   secondaryPhone?: string;
   email?: string;
@@ -19,8 +19,8 @@ export interface Athlete {
   tshirtSize?: string;
   isTeamLeader?: boolean;
   teamLeader?: string;
-  physicalCurrent: boolean;
-  physicalExpiryDate: Timestamp;
+  physicalCurrent?: boolean;
+  physicalExpiryDate?: Timestamp;
   bio?: string;
   notes?: string;
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {UserService} from './services/user.service';
+import {GlobalSettings} from './global-settings';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ export class AppComponent {
 
   }
   today = new Date();
-  public selectedSeason = this.today.getFullYear()
+  public activeSeason = GlobalSettings.activeSeason
 
   logout(): void {
     this.user.logout();

@@ -86,7 +86,6 @@ export class AthletesService {
         map(results => {
           const athletes = convertSnaps<Athlete>(results);
           return athletes.length === 1 ? athletes[0] : null;
-
         })
       );
   }
