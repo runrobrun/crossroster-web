@@ -1,59 +1,35 @@
 <div class="athlete">
+    <h2>{{ athlete?.firstName }} {{ athlete?.lastName }}</h2>
 
-  <h2>{{athlete?.firstName}} {{athlete?.lastName}}</h2>
+    <div class="spinner-container" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+    <mat-table class="results-table" [dataSource]="meetResults">
+        <ng-container matColumnDef="meetName">
+            <mat-header-cell *matHeaderCellDef>Meet Name</mat-header-cell>
 
-  <div class="spinner-container" *ngIf="loading">
+            <mat-cell *matCellDef="let result">{{ result.meetName }}</mat-cell>
+        </ng-container>
 
-    <mat-spinner></mat-spinner>
+        <ng-container matColumnDef="place">
+            <mat-header-cell *matHeaderCellDef>Place</mat-header-cell>
 
-  </div>
-  <mat-table class="results-table" [dataSource]='meetResults'>
-    <ng-container matColumnDef="meetName">
+            <mat-cell *matCellDef="let result">{{ result.place }}</mat-cell>
+        </ng-container>
 
-      <mat-header-cell *matHeaderCellDef>Meet Name</mat-header-cell>
+        <ng-container matColumnDef="time">
+            <mat-header-cell *matHeaderCellDef>Time</mat-header-cell>
 
-      <mat-cell *matCellDef="let result">{{result.meetName}}</mat-cell>
+            <mat-cell class="description-cell" *matCellDef="let result">{{ result.time }}</mat-cell>
+        </ng-container>
 
-    </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <button mat-mini-fab color="accent">
+        <mat-icon class="add-athlete-btn" [routerLink]="['/create-result', athlete.id]">add</mat-icon>
+    </button>
 
-    <ng-container matColumnDef="place">
-
-      <mat-header-cell *matHeaderCellDef>Place</mat-header-cell>
-
-      <mat-cell *matCellDef="let result">{{result.place}}</mat-cell>
-
-    </ng-container>
-
-    <ng-container matColumnDef="time">
-
-      <mat-header-cell *matHeaderCellDef>Time</mat-header-cell>
-
-      <mat-cell class="description-cell"
-                *matCellDef="let result">{{result.time}}</mat-cell>
-
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-
-  </mat-table>
-  <button mat-mini-fab color='accent'>
-    <mat-icon class='add-athlete-btn' [routerLink]="['/create-result', athlete.id]">add</mat-icon>
-  </button>
-
-
-  <button class="bottom-toolbar" mat-raised-button color="primary"
-          (click)='loadMore()'>
-    Load More
-  </button>
-
-
+    <button class="bottom-toolbar" mat-raised-button color="primary" (click)="loadMore()">Load More</button>
 </div>
-
-
-
-
-
-

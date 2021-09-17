@@ -1,49 +1,48 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {Meet} from '../models/meet';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-import {MeetsService} from '../services/meets.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Meet } from '../models/meet';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MeetsService } from '../services/meets.service';
 
 @Component({
-  selector: 'app-edit-meet-dialog',
-  templateUrl: './edit-meet-dialog.component.html',
-  styleUrls: ['./edit-meet-dialog.component.scss']
+    selector: 'app-edit-meet-dialog',
+    templateUrl: './edit-meet-dialog.component.html',
+    styleUrls: ['./edit-meet-dialog.component.scss'],
 })
 export class EditMeetDialogComponent implements OnInit {
-  form: FormGroup;
-  meet: Meet;
+    form: FormGroup;
+    meet: Meet;
 
-  constructor(private dialogRef: MatDialogRef<EditMeetDialogComponent>,
-              private fb: FormBuilder,
-              @Inject(MAT_DIALOG_DATA) meet: Meet,
-              private meetsService: MeetsService) {
-    this.meet = meet;
-    this.form = this.fb.group({
-      hostSchool: meet.hostSchool,
-      archived: meet.archived,
-      meetName: meet.meetName,
-      locationUrl: meet.locationUrl,
-      address: meet.address,
-      city: meet.city,
-      state: meet.state,
-      zip: meet.zip
-    })
-  }
+    constructor(
+        private dialogRef: MatDialogRef<EditMeetDialogComponent>,
+        private fb: FormBuilder,
+        @Inject(MAT_DIALOG_DATA) meet: Meet,
+        private meetsService: MeetsService
+    ) {
+        this.meet = meet;
+        this.form = this.fb.group({
+            hostSchool: meet.hostSchool,
+            archived: meet.archived,
+            meetName: meet.meetName,
+            locationUrl: meet.locationUrl,
+            address: meet.address,
+            city: meet.city,
+            state: meet.state,
+            zip: meet.zip,
+        });
+    }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {}
 
-  close(): void {
-    this.dialogRef.close();
-  }
+    close(): void {
+        this.dialogRef.close();
+    }
 
-  save(): void {
-    const changes = this.form.value;
+    save(): void {
+        const changes = this.form.value;
 
-    this.meetsService.updateMeet(this.meet.id, changes)
-      .subscribe(() => {
-        this.dialogRef.close(changes);
-      });
-  }
-
+        this.meetsService.updateMeet(this.meet.id, changes).subscribe(() => {
+            this.dialogRef.close(changes);
+        });
+    }
 }
