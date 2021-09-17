@@ -2,7 +2,14 @@
     <h2>Pella Cross Country {{ season.seasonYear }} Season</h2>
     <p>Theme: {{ season.seasonTheme }}</p>
     <h3>Boys Roster</h3>
+      <div *ngFor="let athlete of maleAthletes$ | async">
+        {{athlete.firstName}} {{athlete.lastName}}
+      </div>
     <h3>Girls Roster</h3>
+      <div *ngFor="let athlete of femaleAthletes$ | async">
+        {{athlete.firstName}} {{athlete.lastName}}
+      </div>
+  <p class="message">Not seeing an athlete? They may be set to inactive. Click here to see all inactive athletes.</p>
     <h3>Scheduled Meets</h3>
     <ng-container *ngIf="(seasonMeets$ | async)?.length > 0">
         <div *ngFor="let meet of seasonMeets$ | async">Meet: {{ meet.meetName }} - {{ meet.id }}</div>

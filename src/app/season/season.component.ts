@@ -5,6 +5,7 @@ import { SeasonsService } from '../services/seasons.service';
 import { Athlete } from '../models/athlete';
 import { Meet } from '../models/meet';
 import { ActivatedRoute } from '@angular/router';
+import { AthletesService } from "../services/athletes.service";
 
 @Component({
     selector: 'app-season',
@@ -17,17 +18,27 @@ export class SeasonComponent implements OnInit {
     private seasonYear: string = this.route.snapshot.paramMap.get('seasonYear');
     roster: Athlete[];
     seasonMeets$: Observable<Meet[] | undefined>;
+    maleAthletes$: Observable<Athlete[]>;
+    femaleAthletes$: Observable<Athlete[]>;
 
-    constructor(private seasonsService: SeasonsService, private route: ActivatedRoute) {
+    constructor( private seasonsService: SeasonsService,
+                 private route: ActivatedRoute,
+                 private athletesService: AthletesService) {
         this.season = this.route.snapshot.data.season;
     }
 
     ngOnInit(): void {
         this.loadMeets();
+        this.loadAthletes();
     }
 
     loadMeets(): void {
         this.seasonMeets$ = this.seasonsService.loadActiveSeasonSchedule(this.season.id);
         console.log(this.seasonMeets$);
+    }
+
+    loadAthletes(): void {
+      this.femaleAthletes$ = this.athletesService.loadActiveAthletesByGender('FEMALE');
+      this.maleAthletes$ = this.athletesService.loadActiveAthletesByGender('MALE');
     }
 }

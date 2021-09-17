@@ -40,9 +40,10 @@ export class AthletesService {
 
     loadAthletesByGender(gender: string): Observable<Athlete[]> {
         return this.db
-            .collection('athletes', (ref) => ref.where('gender', '==', gender).orderBy('lastName'))
-            .get()
-            .pipe(map((result) => convertSnaps<Athlete>(result)));
+            .collection('athletes', (ref) => ref.where('gender', '==', gender)
+              .orderBy('lastName'))
+              .get()
+              .pipe(map((result) => convertSnaps<Athlete>(result)));
     }
 
     deleteAthlete(athleteId: string): Observable<any> {
@@ -109,4 +110,14 @@ export class AthletesService {
             })
         );
     }
+
+  loadActiveAthletesByGender(gender: string): Observable<Athlete[]> {
+    return this.db
+      .collection('athletes', (ref) => ref.where('gender', '==', gender)
+        .where('active', '==', true)
+        .orderBy('lastName'))
+      .get()
+      .pipe(map((result) => convertSnaps<Athlete>(result)));
+  }
+
 }
