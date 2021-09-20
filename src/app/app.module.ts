@@ -37,6 +37,7 @@ import { EditMeetDialogComponent } from './edit-meet-dialog/edit-meet-dialog.com
 import { CreateMeetComponent } from './create-meet/create-meet.component';
 import { CreateResultComponent } from './create-result/create-result.component';
 import { SeasonComponent } from './season/season.component';
+import { MatExpansionModule } from "@angular/material/expansion";
 
 @NgModule({
     declarations: [
@@ -80,6 +81,7 @@ import { SeasonComponent } from './season/season.component';
         MatNativeDateModule,
         MatProgressSpinnerModule,
         MatTableModule,
+        MatExpansionModule
     ],
     providers: [
         { provide: USE_AUTH_EMULATOR, useValue: environment.useEmulators ? ['localhost', 9099] : undefined },

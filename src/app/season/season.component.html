@@ -1,16 +1,35 @@
 <div class="season" *ngIf="season">
     <h2>Pella Cross Country {{ season.seasonYear }} Season</h2>
-    <p>Theme: {{ season.seasonTheme }}</p>
-    <h3>Boys Roster</h3>
-      <div *ngFor="let athlete of maleAthletes$ | async">
-        {{athlete.firstName}} {{athlete.lastName}}
+    <p class="theme">Theme: {{ season.seasonTheme }}</p>
+    <div class="row">
+      <div class="col-xs-6">
+        <h3>Boys Roster</h3>
+        <div *ngFor="let athlete of maleAthletes$ | async">
+          <a [routerLink]="['/athletes', athlete.profileUrl]">{{athlete.firstName}} {{athlete.lastName}}</a>
+        </div>
       </div>
-    <h3>Girls Roster</h3>
-      <div *ngFor="let athlete of femaleAthletes$ | async">
-        {{athlete.firstName}} {{athlete.lastName}}
+      <div class="col-xs-6">
+        <h3>Girls Roster</h3>
+        <div *ngFor="let athlete of femaleAthletes$ | async">
+          <a [routerLink]="['/athletes', athlete.profileUrl]"> {{athlete.firstName}} {{athlete.lastName}}</a>
+        </div>
       </div>
-  <p class="message">Not seeing an athlete? They may be set to inactive. Click here to see all inactive athletes.</p>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="message">Not seeing an athlete? They may be set to inactive. Click here to see all inactive athletes.</p>
+      </div>
+    </div>
     <h3>Scheduled Meets</h3>
+    <mat-table [dataSource]="seasonMeets$ | async" class="meets-table">
+      <ng-container matColumnDef="meetName">
+        <mat-header-cell *matHeaderCellDef>Meet Name</mat-header-cell>
+        <mat-cell *matCellDef="let meet">{{ meet.meetName }} - </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
     <ng-container *ngIf="(seasonMeets$ | async)?.length > 0">
         <div *ngFor="let meet of seasonMeets$ | async">Meet: {{ meet.meetName }} - {{ meet.id }}</div>
     </ng-container>

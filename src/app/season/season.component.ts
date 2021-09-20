@@ -20,6 +20,7 @@ export class SeasonComponent implements OnInit {
     seasonMeets$: Observable<Meet[] | undefined>;
     maleAthletes$: Observable<Athlete[]>;
     femaleAthletes$: Observable<Athlete[]>;
+    displayedColumns = ['meetName'];
 
     constructor( private seasonsService: SeasonsService,
                  private route: ActivatedRoute,
