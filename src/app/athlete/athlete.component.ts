@@ -16,7 +16,7 @@ export class AthleteComponent implements OnInit {
     loading: boolean = false;
     lastPageLoaded = 0;
     currentSeason = 2020;
-    displayedColumns = ['meetName', 'time', 'place'];
+    displayedColumns = ['dateTime', 'meetName', 'girlsPlace', 'boysPlace'];
 
     constructor(private route: ActivatedRoute, private athletesService: AthletesService) {}
 

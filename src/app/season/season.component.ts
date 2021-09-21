@@ -35,7 +35,6 @@ export class SeasonComponent implements OnInit {
 
     loadMeets(): void {
         this.seasonMeets$ = this.seasonsService.loadActiveSeasonSchedule(this.season.id);
-        console.log(this.seasonMeets$);
     }
 
     loadAthletes(): void {
