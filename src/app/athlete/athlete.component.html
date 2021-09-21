@@ -1,11 +1,38 @@
 <div class="athlete">
-    <h2>{{ athlete?.firstName }} {{ athlete?.lastName }}</h2>
-
+    <h1>{{ athlete?.firstName }} {{ athlete?.lastName }}</h1>
+  <mat-divider></mat-divider>
+  <h2>Basic Contact</h2>
+  <div class="row">
+    <div class="col-xs-6">Primary Phone: {{ athlete?.primaryPhone }}</div>
+    <div class="col-xs-6">Secondary Phone: {{ athlete?.primaryPhone }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">Email: {{ athlete?.email }}</div>
+    <div class="col-xs-6">Graduation Year: {{ athlete?.gradYear }}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <h2>Uniform Info</h2>
+  <div class="row">
+    <div class="col-xs-6">
+      Top: {{ athlete?.uniformTopSize }}<br/>
+      Bottom: {{ athlete?.uniformBottomSize }}
+    </div>
+    <div class="col-xs-6">
+      Bag Number: {{ athlete?.bagNumber }}<br/>
+      Warmup: {{ athlete?.warmUpTopSize }}</div>
+  </div>
     <div class="spinner-container" *ngIf="loading">
         <mat-spinner></mat-spinner>
     </div>
+  <h2>Meet Results</h2>
     <mat-table class="results-table" [dataSource]="meetResults">
-        <ng-container matColumnDef="meetName">
+      <ng-container matColumnDef="dateTime">
+        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+
+        <mat-cell *matCellDef="let result">{{ result.dateTime }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="meetName">
             <mat-header-cell *matHeaderCellDef>Meet Name</mat-header-cell>
 
             <mat-cell *matCellDef="let result">{{ result.meetName }}</mat-cell>
