@@ -1,18 +1,16 @@
-<div class='meets-panel'>
-  <div class='header'>
-    <h2 class='title'>Active Meets</h2>
-    <button mat-mini-fab color='accent'>
-      <mat-icon class='add-meet-btn' routerLink='/create-meet'>add</mat-icon>
-    </button>
-  </div>
+<div class="meets-panel">
+    <div class="header">
+        <h2 class="title">Active Meets</h2>
+        <button mat-mini-fab color="accent">
+            <mat-icon class="add-meet-btn" routerLink="/create-meet">add</mat-icon>
+        </button>
+    </div>
 
-  <meets-card-list [meets]='activeMeets$ | async'
-                   (meetEdited)='reloadMeets()'></meets-card-list>
+    <meets-card-list [meets]="activeMeets$ | async" (meetEdited)="reloadMeets()"></meets-card-list>
 
-  <div class='header'>
-    <h2 class='title'>Inactive Meets</h2>
-  </div>
+    <div class="header">
+        <h2 class="title">Inactive Meets</h2>
+    </div>
 
-  <meets-card-list [meets]='archivedMeets$ | async'
-                   (meetEdited)='reloadMeets()'></meets-card-list>
+    <meets-card-list [meets]="archivedMeets$ | async" (meetEdited)="reloadMeets()"></meets-card-list>
 </div>

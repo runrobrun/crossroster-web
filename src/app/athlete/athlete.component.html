@@ -1,56 +1,62 @@
 <div class="athlete">
-
-  <h2>{{athlete?.firstName}} {{athlete?.lastName}}</h2>
-
-  <div class="spinner-container" *ngIf="loading">
-
-    <mat-spinner></mat-spinner>
-
+    <h1>{{ athlete?.firstName }} {{ athlete?.lastName }}</h1>
+  <mat-divider></mat-divider>
+  <h2>Basic Contact</h2>
+  <div class="row">
+    <div class="col-xs-6">Primary Phone: {{ athlete?.primaryPhone }}</div>
+    <div class="col-xs-6">Secondary Phone: {{ athlete?.primaryPhone }}</div>
   </div>
-  <mat-table class="results-table" [dataSource]='meetResults'>
-    <ng-container matColumnDef="meetName">
+  <div class="row">
+    <div class="col-xs-6">Email: {{ athlete?.email }}</div>
+    <div class="col-xs-6">Graduation Year: {{ athlete?.gradYear }}</div>
+  </div>
+  <mat-divider></mat-divider>
+  <h2>Uniform Info</h2>
+  <div class="row">
+    <div class="col-xs-6">
+      Top: {{ athlete?.uniformTopSize }}<br/>
+      Bottom: {{ athlete?.uniformBottomSize }}
+    </div>
+    <div class="col-xs-6">
+      Bag Number: {{ athlete?.bagNumber }}<br/>
+      Warmup: {{ athlete?.warmUpTopSize }}</div>
+  </div>
+    <div class="spinner-container" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+  <h2>Meet Results</h2>
+    <mat-table class="results-table" [dataSource]="meetResults">
+      <ng-container matColumnDef="dateTime">
+        <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
 
-      <mat-header-cell *matHeaderCellDef>Meet Name</mat-header-cell>
+        <mat-cell *matCellDef="let result">{{ result.dateTime }}</mat-cell>
+      </ng-container>
 
-      <mat-cell *matCellDef="let result">{{result.meetName}}</mat-cell>
+      <ng-container matColumnDef="meetName">
+            <mat-header-cell *matHeaderCellDef>Meet Name</mat-header-cell>
 
-    </ng-container>
+            <mat-cell *matCellDef="let result">{{ result.meetName }}</mat-cell>
+        </ng-container>
 
+        <ng-container matColumnDef="place">
+            <mat-header-cell *matHeaderCellDef>Place</mat-header-cell>
 
-    <ng-container matColumnDef="place">
+            <mat-cell *matCellDef="let result">{{ result.place }}</mat-cell>
+        </ng-container>
 
-      <mat-header-cell *matHeaderCellDef>Place</mat-header-cell>
+        <ng-container matColumnDef="time">
+            <mat-header-cell *matHeaderCellDef>Time</mat-header-cell>
 
-      <mat-cell *matCellDef="let result">{{result.place}}</mat-cell>
+            <mat-cell class="description-cell" *matCellDef="let result">{{ result.time }}</mat-cell>
+        </ng-container>
 
-    </ng-container>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 
-    <ng-container matColumnDef="time">
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <button mat-mini-fab color="accent">
+        <mat-icon class="add-athlete-btn" [routerLink]="['/create-result', athlete.id]">add</mat-icon>
+    </button>
 
-      <mat-header-cell *matHeaderCellDef>Time</mat-header-cell>
-
-      <mat-cell class="description-cell"
-                *matCellDef="let result">{{result.time}}</mat-cell>
-
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-
-    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-
-  </mat-table>
-
-
-  <button class="bottom-toolbar" mat-raised-button color="primary"
-          (click)='loadMore()'>
-    Load More
-  </button>
-
-
+    <button class="bottom-toolbar" mat-raised-button color="primary" (click)="loadMore()">Load More</button>
 </div>
-
-
-
-
-
-

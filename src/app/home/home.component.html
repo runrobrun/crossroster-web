@@ -1,24 +1,25 @@
-<div class='athletes-panel'>
-  <div class='header'>
-    <h2 class='title'>Athletes</h2>
-    <button mat-mini-fab color='accent'>
-      <mat-icon class='add-athlete-btn' routerLink='/create-athlete'>add</mat-icon>
-    </button>
-  </div>
-  <mat-tab-group>
+<div class="athletes-panel">
+    <div class="header">
+        <h2 class="title">Athletes</h2>
+        <button mat-mini-fab color="accent">
+            <mat-icon class="add-athlete-btn" routerLink="/create-athlete">add</mat-icon>
+        </button>
+    </div>
+    <mat-tab-group>
+        <mat-tab label="Boys">
+            <athletes-card-list
+                [athletes]="maleAthletes$ | async"
+                (athleteEdited)="reloadAthletes()"
+                (athleteDeleted)="reloadAthletes()"
+            ></athletes-card-list>
+        </mat-tab>
 
-    <mat-tab label="Boys">
-      <athletes-card-list [athletes]='maleAthletes$ | async'
-                          (athleteEdited)='reloadAthletes()'
-                          (athleteDeleted)='reloadAthletes()'></athletes-card-list>
-    </mat-tab>
-
-    <mat-tab label="Girls">
-      <athletes-card-list [athletes]='femaleAthletes$ | async'
-                          (athleteEdited)='reloadAthletes()'
-                          (athleteDeleted)='reloadAthletes()'></athletes-card-list>
-    </mat-tab>
-
-  </mat-tab-group>
-
+        <mat-tab label="Girls">
+            <athletes-card-list
+                [athletes]="femaleAthletes$ | async"
+                (athleteEdited)="reloadAthletes()"
+                (athleteDeleted)="reloadAthletes()"
+            ></athletes-card-list>
+        </mat-tab>
+    </mat-tab-group>
 </div>
