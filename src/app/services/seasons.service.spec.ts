@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
 import { SeasonsService } from './seasons.service';
+import { AngularFirestore } from "@angular/fire/firestore";
 
 describe('SeasonsService', () => {
     let service: SeasonsService;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({});
+      let angularFirestoreMock;
+      TestBed.configureTestingModule({
+          providers: [{provide: AngularFirestore, useValue: angularFirestoreMock}]
+        });
         service = TestBed.inject(SeasonsService);
     });
 
