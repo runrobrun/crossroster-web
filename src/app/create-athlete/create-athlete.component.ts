@@ -8,6 +8,7 @@ import firebase from 'firebase';
 import Timestamp = firebase.firestore.Timestamp;
 import { catchError, tap } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { AngularFireStorage } from "@angular/fire/storage";
 
 @Component({
     selector: 'create-athlete',
@@ -45,7 +46,8 @@ export class CreateAthleteComponent implements OnInit {
         private fb: FormBuilder,
         private athletesService: AthletesService,
         private afs: AngularFirestore,
-        private router: Router
+        private router: Router,
+        private storage: AngularFireStorage
     ) {}
 
     ngOnInit(): void {
@@ -98,4 +100,16 @@ export class CreateAthleteComponent implements OnInit {
     setTeamLeaderFlag(): void {
         this.isTeamLeader = !this.isTeamLeader;
     }
+
+  uploadPicture(event) {
+    const file:File = event.target.files[0];
+    const filePath =`athletes/${this.athleteId}/${file.name}`;
+
+    const task = this.storage.upload(filePath, file, {
+      cacheControl: "max-age=2592000,public"
+    });
+
+    task.snapshotChanges().subscribe();
+
+  }
 }

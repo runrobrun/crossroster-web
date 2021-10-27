@@ -2,6 +2,11 @@
     <h3>Create New Athlete</h3>
 
     <form [formGroup]="athleteForm">
+      <div class="athlete-image-upload">
+        <span>Athlete Image:</span>
+        <img class="athlete-thumbnail mat-elevation-z3">
+        <input type="file" (change)="uploadPicture($event)">
+      </div>
         <mat-form-field appearance="outline">
             <input placeholder="First Name" matInput formControlName="firstName" />
         </mat-form-field>
