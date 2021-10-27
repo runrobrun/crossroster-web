@@ -47,7 +47,9 @@ export class AthletesService {
     }
 
     deleteAthlete(athleteId: string): Observable<any> {
-        return from(this.db.doc(`athletes/${athleteId}`).delete());
+
+      return confirm("Are you sure you want to delete this athlete?") ? from(this.db.doc(`athletes/${athleteId}`).delete()) : undefined;
+
     }
 
     createAthlete(newAthlete: Partial<Athlete>, athleteId?: string): Observable<any> {

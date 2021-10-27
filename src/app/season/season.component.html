@@ -24,17 +24,19 @@
     <mat-table [dataSource]="seasonMeets$ | async" class="meets-table">
       <ng-container matColumnDef="meetName">
         <mat-header-cell *matHeaderCellDef>Meet Name</mat-header-cell>
-        <mat-cell *matCellDef="let meet">{{ meet.meetName }} - </mat-cell>
+        <mat-cell *matCellDef="let meet">{{ meet.meetName }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <mat-header-cell *matHeaderCellDef>Meet Date</mat-header-cell>
+        <mat-cell *matCellDef="let meet">{{ meet.dateTime.toDate() | date: 'MM/dd/yyyy h:mm a'}}</mat-cell>
       </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 
       <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
     </mat-table>
-    <ng-container *ngIf="(seasonMeets$ | async)?.length > 0">
-        <div *ngFor="let meet of seasonMeets$ | async">Meet: {{ meet.meetName }} - {{ meet.id }}</div>
-    </ng-container>
     <ng-container *ngIf="(seasonMeets$ | async)?.length < 1">
         <p>NO MEETS YET</p>
+        <p>Create Schedule Now</p>
     </ng-container>
 </div>
 <div *ngIf="!season" class="season">No Active season found. Create one now? See Archived seasons?</div>
