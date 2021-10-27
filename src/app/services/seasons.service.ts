@@ -31,6 +31,7 @@ export class SeasonsService {
             .pipe(
                 map((result) => {
                     const meets = convertSnaps<Meet>(result);
+                    console.log("meets ", meets);
                     return meets.length >= 1 ? meets : null;
                 })
             );
